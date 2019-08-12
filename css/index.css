@@ -1,0 +1,228 @@
+/* reset css */
+*{
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: #f5f5f5;
+}
+body{
+    margin: 0;
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+}
+p{
+    color: #000;
+}
+/* swiper */
+.swiper-box{
+    width: 100%;
+    background: #fff;
+    padding: .5rem 0;
+    overflow: hidden;
+}
+.swiper-box .swiper-container1{
+    width: 17.25rem;
+    height: 8rem;
+    margin: 0 auto;
+    border-radius: .4rem;
+    position: relative;
+}
+.swiper-box .swiper-container1 img{
+    width: 100%;
+    height: 100%;
+    border-radius: .4rem;
+}
+.swiper-box .swiper-container1 > img{
+    display: none;
+}
+.swiper-pagination-bullet{
+    width: .3rem;
+    height: .3rem;
+    background: #fff;
+    opacity: .2;
+}
+.swiper-pagination-bullet-active{
+    background: #fff;
+    opacity: .6;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+    margin: 0 .125rem;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+    width: auto;
+    bottom: .3rem;
+    left: auto;
+    right: .75rem;
+}
+/*推荐位*/
+.recommend{
+    width: 100%;
+    height: 4.5rem;
+    background: #fff;
+    margin: .5rem 0;
+}
+.recommend .re-con{
+    float: left;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    padding: 1.1rem .75rem;
+}
+.recommend img{
+    width: 2.75rem;
+    height: 2.3rem;
+    position: absolute;
+    top: 1.1rem;
+    right: .7rem;
+}
+.recommend .re-con:first-of-type{
+    border-right: 1px solid #f5f5f5;
+}
+.recommend .re-con:first-of-type img{
+    /*right: .7rem;*/
+}
+.recommend .tit{
+    color: #333;
+    font-size: .8rem;
+    padding: .15rem 0;
+}
+.re-con .tip{
+    color: #666;
+    font-size: .65rem;
+    max-width: 8em;
+    display: block;
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*急速*/
+.rapidly{
+    width: 100%;
+    background: #fff;
+}
+.rapidly .rap-head{
+    padding: .7rem;
+    border-bottom: 1px solid #f5f5f5;
+    position: relative;
+}
+.rap-head .tit{
+    font-size: .8rem;
+    color: #030303;
+    display: inline-block;
+}
+.all{
+    font-size: .7rem;
+    color: #666;
+    line-height: 1rem;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    padding: 0 .75rem;
+    top: 0;
+    margin: .9rem 0;
+}
+.all i{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: url("../imgs/system-moreb@3x.png");
+    background-size: 100% 100%;
+    float: right;
+}
+/*滑动广告位*/
+.overfl{
+    width: 100%;
+    overflow: hidden;
+    padding: .5rem 0 .25rem;
+}
+.overfl .swiper-slide{
+    text-align: center;
+    font-size: 18px;
+    /*background: #fff;*/
+    width: 11.25rem;
+    /*background: red;*/
+    /*border: 1px solid blue;*/
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    /*margin-right: .5rem !important;*/
+}
+.overfl .swiper-wrapper .swiper-slide:first-of-type{
+    margin-left: .75rem;
+}
+.overfl .swiper-slide img{
+    width: 100%;
+}
+/*m-container*/
+.m-container{
+    background: #fff;
+}
+.mon{
+    width: 5.3rem;
+    height: 3.15rem;
+    display: inline-block;
+    background: url("../imgs/ul-bg.png");
+    background-size: 100% 100%;
+}
+.mon p{
+    text-align: center;
+}
+.m-box{
+    width: calc(100% - 5.3rem);
+    float: right;
+    display: flex;
+    padding-right: .75rem;
+}
+.mon .m-num{
+    font-size: 1.2rem;
+    color: #EF7463;
+}
+.mon .m-max{
+    font-size: .6rem;
+    color: #666;
+}
+.m-container li{
+    border-bottom: 1px solid #f5f5f5;
+    padding: 1rem 0;
+}
+.m-box img{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    margin: .75rem .5rem 0 .9rem;
+}
+.text-box{
+    float: right;
+}
+.m-box .m-tit{
+    color: #030303;
+    font-size: .8rem;
+}
+.m-box .m-tip{
+    color: #666;
+    font-size: .7rem;
+}
+
+
+
+
