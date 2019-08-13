@@ -5,8 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>急速借钱</title>
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/mui.min.js"></script>
+    <script src="js/mui.pullToRefresh.js"></script>
+    <script src="js/mui.pullToRefresh.material.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script>
@@ -21,6 +25,135 @@
     </script>
 </head>
 <body>
-
+    <div id="main">
+        <!--swiper-->
+        <div class="swiper-box">
+            <div class="swiper-container1 swiper-container4">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="imgs/js1.png" alt=""></div>
+                    <div class="swiper-slide"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565589789345&di=78d7914a9dd4cf81b9462c33bac2b6ed&imgtype=0&src=http%3A%2F%2Fwww.5577.com%2Fup%2F2019-7%2F15628406132097776.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565589789345&di=6ba7d9cbf49ce5edb32c362d08c51646&imgtype=0&src=http%3A%2F%2Fwx2.sinaimg.cn%2Flarge%2F006WvzUFgy1g2fbd0s9roj30gc096q9f.jpg" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <img src="" alt="">
+            </div>
+        </div>
+        <!--列表-->
+        <div class="content">
+            <ul>
+                <li data-url="aaa">
+                    <a href="#">
+                        <div class="con-head">
+                            <img src="imgs/js1.png" alt=""><span>网商金融</span>
+                        </div>
+                        <p class="con-tit">最高可提现(元)</p>
+                        <div class="max-num"><p>500000</p></div>
+                        <p class="tip">额度超高 申请简 急速借钱 急速借钱 急速借钱</p>
+                    </a>
+                </li>
+                <li data-url="222">
+                    <a href="#">
+                        <div class="con-head">
+                            <img src="imgs/js1.png" alt=""><span>网商金融</span>
+                        </div>
+                        <p class="con-tit">最高可提现(元)</p>
+                        <div class="max-num"><p>50000000</p></div>
+                        <p class="tip">额度超高 申请简</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="con-head">
+                            <img src="imgs/js1.png" alt=""><span>网商金融</span>
+                        </div>
+                        <p class="con-tit">最高可提现(元)</p>
+                        <div class="max-num"><p>500000</p></div>
+                        <p class="tip">额度超高 申请简 急速借钱 急速借钱 急速借钱</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="con-head">
+                            <img src="imgs/js1.png" alt=""><span>网商金融</span>
+                        </div>
+                        <p class="con-tit">最高可提现(元)</p>
+                        <div class="max-num"><p>5000</p></div>
+                        <p class="tip">额度超高 申请简 急速借钱 急速借钱 急速借钱</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <script>
+            var swiper = new Swiper('.swiper-container4', {
+                spaceBetween: 15,
+                speed: 1000,
+                loop: true, // 循环模式选项
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: false,
+                }
+            });
+        </script>
+    </div>
 </body>
 </html>
+<script>
+    $(function () {
+        function toThousands(num) {
+            return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+        }
+        $.each($('.max-num p'),function () {
+            $(this).html(toThousands($(this).text()))
+        });
+
+        $('ul li').on('tap',function () {
+            console.log($(this).data('url'));
+            mui.openWindow({
+                url: ''
+            })
+        });
+        $('.swiper-box .swiper-slide').on('tap',function () {
+            console.log($(this).data('url'));
+            mui.openWindow({
+                url: ''
+            })
+        });
+
+        mui("body").each(function (index, pullRefreshEl) {
+            mui(pullRefreshEl).pullRefresh({
+                down: {
+                    auto: false,
+                    contentdown: "下拉可以刷新",
+                    contentover: "释放立即刷新",
+                    contentrefresh: "正在刷新.....",
+                    callback: function () {
+                        setTimeout(function () {
+                            // queryLoanAll(index,true,true);
+                            mui(pullRefreshEl).pullRefresh().endPulldownToRefresh();
+
+                            setTimeout(function () {
+                                mui(pullRefreshEl).pullRefresh().refresh(true);
+                            }, 500);
+                        }, 500);
+                    }
+                },
+                up:{
+                    contentrefresh: '正在加载...',
+                    contentnomore:'到底了呀~',
+                    callback: function(){
+                        setTimeout(function() {
+                            // var end = queryLoanAll(index,true,false);
+                            console.log('end');
+                            // mui(pullRefreshEl).pullRefresh().endPullupToRefresh(end);
+                        }, 500);
+                    }
+                }
+            });
+        });
+    })
+</script>
